@@ -1,5 +1,10 @@
 var list = {
 	"en": {
+		"Works": {
+			"Examples": {
+				"Index": "works/index",
+			}
+		},
 		"Projects": {
 			"Basics":  {
 				"Basic Scene": "html/basicSceneInfo",

@@ -173,7 +173,7 @@ table th,
 table td {
 	text-align: left;
 	vertical-align: top;
-	padding: 8px 6px;
+	padding-left: 0;
 	border-bottom: var(--border-style);
 }
 
