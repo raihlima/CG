@@ -19,7 +19,7 @@ var trackballControls = new TrackballControls( camera, renderer.domElement );
 
 // Set angles of rotation
 var angle = [-1.57, 0, 0]; // In degreesToRadians
-var angleY = [-1.57, 0, 0];
+var angleY = [0, 0, 0];
 // Show world axes
 var axesHelper = new THREE.AxesHelper( 12 );
 scene.add( axesHelper );
@@ -75,6 +75,7 @@ function rotateCylinder()
 {
   // More info:
   // https://threejs.org/docs/#manual/en/introduction/Matrix-transformations
+  s1.matrixAutoUpdate = false;
   c1.matrixAutoUpdate = false;
   s2.matrixAutoUpdate = false;
   c2.matrixAutoUpdate = false;
@@ -84,6 +85,7 @@ function rotateCylinder()
   var mat4 = new THREE.Matrix4();
 
   // resetting matrices
+  s1.matrix.identity();
   c1.matrix.identity();
   s2.matrix.identity();
   c2.matrix.identity();
@@ -92,7 +94,7 @@ function rotateCylinder()
 
   // Will execute T1 and then R1
   c1.matrix.multiply(mat4.makeRotationZ(angle[0]));
-  c1.matrix.multiply(mat4.makeRotationY(angleY[0]));
+  s1.matrix.multiply(mat4.makeRotationY(angleY[0]));
   c1.matrix.multiply(mat4.makeTranslation(0.0, 1.0, 0.0)); // T1
   
   // Just need to translate the sphere to the right position
@@ -100,7 +102,7 @@ function rotateCylinder()
 
   // Will execute T2 and then R2
   c2.matrix.multiply(mat4.makeRotationZ(angle[1])); // R2
-  c2.matrix.multiply(mat4.makeRotationY(angleY[1])); // R2
+  s2.matrix.multiply(mat4.makeRotationY(angleY[1])); // R2
   c2.matrix.multiply(mat4.makeTranslation(0.0, 1.0, 0.0)); // T2
 
   // Just need to translate the sphere to the right position
@@ -108,7 +110,7 @@ function rotateCylinder()
 
   // Will execute T3 and then R3
   c3.matrix.multiply(mat4.makeRotationZ(angle[2])); // R3
-  c3.matrix.multiply(mat4.makeRotationY(angleY[2])); // R3
+  s3.matrix.multiply(mat4.makeRotationY(angleY[2])); // R3
   c3.matrix.multiply(mat4.makeTranslation(0.0, 1.0, 0.0)); // T3
 }
 
