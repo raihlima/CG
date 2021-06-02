@@ -22,7 +22,7 @@ var axesHelper = new THREE.AxesHelper( 50 );
 scene.add( axesHelper );
 
 // create the ground plane
-var groundPlaneWired = createGroundPlaneWired(50, 50,50,50);
+var groundPlaneWired = createGroundPlaneWired(50,50,50,50);
 scene.add(groundPlaneWired);
 
 //create camera
