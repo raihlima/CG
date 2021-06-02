@@ -105,7 +105,7 @@ var speed = 0.1;
 function makeMoviment(){
 
   let xy = Math.sqrt(Math.pow(sphereNewPositon[0],2)+ Math.pow(sphereNewPositon[1],2));
-  let xyz = Math.sqrt(Math.pow(sphereNewPositon[0],2)+ Math.pow(sphereNewPositon[1],2))+ Math.pow(sphereNewPositon[2],2);
+  let xyz = Math.sqrt(Math.pow(sphereNewPositon[0],2)+ Math.pow(sphereNewPositon[1],2)+ Math.pow(sphereNewPositon[2],2));
 
   sphereSpeed [0] = speed * (sphereNewPositon[0]/xyz);
   sphereSpeed [1] = speed * (sphereNewPositon[1]/xyz);
