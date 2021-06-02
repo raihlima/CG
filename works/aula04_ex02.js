@@ -12,7 +12,6 @@ var scene = new THREE.Scene();    // Create main scene
 var renderer = initRenderer();    // View function in util/utils
 var camera = initCamera(new THREE.Vector3(0, -30, 15)); // Init camera in this position
 
-
 // Enable mouse rotation, pan, zoom etc.
 var trackballControls = new TrackballControls( camera, renderer.domElement );
 
@@ -36,7 +35,7 @@ var sphereGeometry = new THREE.SphereGeometry( 1, 32, 32 );
 var sphereMaterial = new THREE.MeshNormalMaterial();
 var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
-// position the cubspheree
+// position sphere
 var spherePositon = [0,0,1];
 var sphereNewPositon = [0,0,1];
 var sphereSpeed = [0,0,0];
@@ -44,7 +43,6 @@ sphere.position.set(spherePositon[0], spherePositon[1], spherePositon[2]);
 
 // add the sphere to the scene
 scene.add(sphere);
-
 
 // Use this to show information onscreen
 var controls = new InfoBox();
@@ -67,10 +65,7 @@ function buildInterface()
     this.posY = 0;
     this.posZ = 1;
 
-    //var pos = [posX,posY,posZ];
     this.changeMoviment1 = function(){
-      //if(moviment)
-        //sphere.position.set(this.posX,this.posY,this.posZ);
         sphereNewPositon[0] = this.posX;
         sphereNewPositon[1] = this.posY;
         sphereNewPositon[2] = this.posZ;
@@ -79,7 +74,6 @@ function buildInterface()
     this.changeMoviment = function(){
       moviment = !moviment;
     };
-    //makeMoviment (posX, posY, posZ);
   };
 
   // GUI interface
@@ -97,26 +91,18 @@ function buildInterface()
 
 }
 
-
 //make moviment
 var moviment = false;
 var speed = 0.1;
 
 function makeMoviment(){
-
   let xy = Math.sqrt(Math.pow(sphereNewPositon[0],2)+ Math.pow(sphereNewPositon[1],2));
   let xyz = Math.sqrt(Math.pow(sphereNewPositon[0],2)+ Math.pow(sphereNewPositon[1],2)+ Math.pow(sphereNewPositon[2],2));
 
   sphereSpeed [0] = speed * (sphereNewPositon[0]/xyz);
   sphereSpeed [1] = speed * (sphereNewPositon[1]/xyz);
   sphereSpeed [2] = speed * (sphereNewPositon[2]/xyz);
-  /*
-  sphereSpeed [0] = speed * (sphereNewPositon[0]/Math.sqrt(Math.pow(sphereNewPositon[0],2)+ Math.pow(sphereNewPositon[1],2)))
-                          * (Math.sqrt(Math.pow(sphereNewPositon[0],2)+ Math.pow(sphereNewPositon[1],2)))/(Math.sqrt(Math.pow(sphereNewPositon[0],2)+ Math.pow(sphereNewPositon[1],2))+ Math.pow(sphereNewPositon[2],2));
 
-  sphereSpeed [1] = speed * (sphereNewPositon[1]/Math.sqrt(Math.pow(sphereNewPositon[0],2)+ Math.pow(sphereNewPositon[1],2)));
-  sphereSpeed [2] = speed * ();
-  */
   if(moviment){
 
     //X
@@ -149,19 +135,9 @@ function makeMoviment(){
         spherePositon[2] = spherePositon[2]+sphereSpeed [2];
       }
     }
-
-
-
-
     sphere.position.set(spherePositon[0], spherePositon[1], spherePositon[2]);
-
   }
-    
-  //moviment
-  //  var mat4 = new THREE.Matrix4();
-  //  sphere.translateZ(posZ);
 }
-
 
 buildInterface();
 render();
