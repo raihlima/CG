@@ -21,7 +21,7 @@ scene.add( axesHelper );
 
 // create the ground plane
 var planeGeometry = new THREE.PlaneGeometry(25, 25);
-//planeGeometry.translate(0.0, 0.0, -0.02); // To avoid conflict with the axeshelper
+planeGeometry.translate(0.0, 0.0, -1); // To avoid conflict with the axeshelper
 var planeMaterial = new THREE.MeshBasicMaterial({
     color: "rgba(150, 150, 150)",
     side: THREE.DoubleSide,
@@ -36,8 +36,8 @@ var sphereMaterial = new THREE.MeshNormalMaterial();
 var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
 // position sphere
-var spherePositon = [0,0,1];
-var sphereNewPositon = [0,0,1];
+var spherePositon = [0,0,0];
+var sphereNewPositon = [0,0,0];
 var sphereSpeed = [0,0,0];
 sphere.position.set(spherePositon[0], spherePositon[1], spherePositon[2]);
 
@@ -63,7 +63,7 @@ function buildInterface()
   {
     this.posX = 0;
     this.posY = 0;
-    this.posZ = 1;
+    this.posZ = 0;
 
     this.changeMoviment1 = function(){
         sphereNewPositon[0] = this.posX;
