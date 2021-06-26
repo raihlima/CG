@@ -65,7 +65,7 @@ var rotY = new THREE.Vector3(0, 1, 0); // Set Y axis
 var rotZ = new THREE.Vector3(0, 0, 1); // Set Z axis
 
 function movementControls(key, val) {
-  
+  moveForward = val;
   switch (key) {
     case 38: // up arrow
       movX1 = val;
@@ -92,8 +92,9 @@ function movementControls(key, val) {
 }
 
 function moveCamera(){
-  let speed = -0.2;
+  let speed = -0.12;
   let angle = degreesToRadians(1);
+  cameraHolder.translateZ(speed);
   if (moveForward) {
     cameraHolder.translateZ(speed);
   }
