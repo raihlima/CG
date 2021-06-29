@@ -16,7 +16,7 @@ var trackballControls = new TrackballControls( camera, renderer.domElement );
 initDefaultBasicLight(scene);
 
 // Set angles of rotation
-var angle = 0;
+var angle = 0;buildInterface();
 var angle2 = 0;
 var speed = 0.05;
 var animationOn = true; // control if animation is on or of
@@ -33,12 +33,7 @@ scene.add(sphere);
 // Set initial position of the sphere
 sphere.translateX(1.0).translateY(1.0).translateZ(1.0);
 
-// More information about cylinderGeometry here ---> https://threejs.org/docs/#api/en/geometries/CylinderGeometry
-var cylinderGeometry = new THREE.CylinderGeometry(0.1, 0.1, 2.0, 25);
-var cylinderMaterial = new THREE.MeshPhongMaterial( {color:'rgb(100,255,100)'} );
-var cylinder = new THREE.Mesh( cylinderGeometry, cylinderMaterial );
-sphere.add(cylinder);
-
+// More information about cylinderGeometry here ---> httbuildInterface();
 // Rede cylinder
 var cylinderGeometry2 = new THREE.CylinderGeometry(0.07, 0.07, 1.0, 25);
 var cylinderMaterial2 = new THREE.MeshPhongMaterial( {color:'rgb(255,100,100)'} );
