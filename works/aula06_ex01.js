@@ -152,7 +152,7 @@ function setSpotLights(position, id)
     redSpotLight.position.copy(position);
     redSpotLight.shadow.mapSize.width = 512;
     redSpotLight.shadow.mapSize.height = 512;
-    redSpotLight.angle = degreesToRadians(40);    
+    //redSpotLight.angle = degreesToRadians(40);    
     redSpotLight.castShadow = true;
     redSpotLight.decay = 2;
     redSpotLight.penumbra = 0.5;
@@ -164,7 +164,7 @@ function setSpotLights(position, id)
     greenSpotLight.position.copy(position);
     greenSpotLight.shadow.mapSize.width = 512;
     greenSpotLight.shadow.mapSize.height = 512;
-    greenSpotLight.angle = degreesToRadians(40);    
+    //greenSpotLight.angle = degreesToRadians(40);    
     greenSpotLight.castShadow = true;
     greenSpotLight.decay = 2;
     greenSpotLight.penumbra = 0.5;
@@ -176,7 +176,7 @@ function setSpotLights(position, id)
     blueSpotLight.position.copy(position);
     blueSpotLight.shadow.mapSize.width = 512;
     blueSpotLight.shadow.mapSize.height = 512;
-    blueSpotLight.angle = degreesToRadians(40);    
+    //blueSpotLight.angle = degreesToRadians(40);    
     blueSpotLight.castShadow = true;
     blueSpotLight.decay = 2;
     blueSpotLight.penumbra = 0.5;
@@ -201,24 +201,22 @@ function rotateTeapot(){
 // Update light position of the spot lights
 function updateLightsPosition(id)
 {
+  
   //lightArray[activeLight].position.copy(lightPosition);
   if (id == 0){
     redSpotLight.position.copy(redLightPosition);
     redLightSphere.position.copy(redLightPosition);
-    infoBox.changeMessage("Red Light Position: " + redLightPosition.x.toFixed(2) + ", " +
-                          redLightPosition.y.toFixed(2) + ", " + redLightPosition.z.toFixed(2));
+   // infoBox.changeMessage("Red Light Position: " + redLightPosition.x.toFixed(2) + ", " +                          redLightPosition.y.toFixed(2) + ", " + redLightPosition.z.toFixed(2));
   }
   if (id == 1){
     greenSpotLight.position.copy(greenLightPosition);
     greenLightSphere.position.copy(greenLightPosition);
-    infoBox.changeMessage("Green Light Position: " + greenLightPosition.x.toFixed(2) + ", " +
-                          greenLightPosition.y.toFixed(2) + ", " + greenLightPosition.z.toFixed(2));
+   // infoBox.changeMessage("Green Light Position: " + greenLightPosition.x.toFixed(2) + ", " +                          greenLightPosition.y.toFixed(2) + ", " + greenLightPosition.z.toFixed(2));
   }
   if (id == 2){
     blueSpotLight.position.copy(blueLightPosition);
     blueLightSphere.position.copy(blueLightPosition);
-    infoBox.changeMessage("Blue Light Position: " + blueLightPosition.x.toFixed(2) + ", " +
-                          blueLightPosition.y.toFixed(2) + ", " + blueLightPosition.z.toFixed(2));
+    //infoBox.changeMessage("Blue Light Position: " + blueLightPosition.x.toFixed(2) + ", " +                          blueLightPosition.y.toFixed(2) + ", " + blueLightPosition.z.toFixed(2));
   }
 
 }
