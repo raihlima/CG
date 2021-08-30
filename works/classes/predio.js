@@ -602,7 +602,7 @@ import {initRenderer,
 
         parede[5].position.set(0, 0.0, 66.5);
         //Posicao do edificio
-        parede[0].position.set(0, 0, -22);
+        parede[0].position.set(0, 0, -25);
         parede[0].add(parede[1]);
         parede[0].add(parede[2]);
         parede[0].add(parede[3]);
