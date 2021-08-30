@@ -10,8 +10,8 @@ import {initRenderer,
         initCamera,
         InfoBox} from "../libs/util/util.js";
 
-import { gerarArvores } from './classes/arvore.js';
-import {Aviao} from './classes/aviao.js';
+import { gerarArvores } from '../works/classes/arvore.js';
+import {Aviao} from '../works/classes/aviao.js';
 
 var stats = new Stats();        // To show FPS information
 var scene = new THREE.Scene();  // create scene
