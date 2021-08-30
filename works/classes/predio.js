@@ -303,7 +303,7 @@ import {initRenderer,
 
         parede[5].position.set(0, 0.0, 66.5);
         //Posicao do edificio
-        parede[0].position.set(0, 0, -22);
+        parede[0].position.set(0, 0, -25);
         parede[0].add(parede[1]);
         parede[0].add(parede[2]);
         parede[0].add(parede[3]);
@@ -515,7 +515,7 @@ import {initRenderer,
         //var circle2 = new THREE.Mesh(circleGeometry, woodTopMaterial);
 
         // position the cylinder
-        cylinder.position.set(0.0, 0.0, altura/2);
+        cylinder.position.set(0.0, 0.0, altura/2-2);
         cylinder.rotation.x = Math.PI / 2;
         circle.position.set(0.0, altura/2, 0);
         circle.rotation.x = -Math.PI / 2;
@@ -748,12 +748,12 @@ import {initRenderer,
         //circle2.rotation.x = Math.PI / 2;
 
         cylinder2.add(circle2);
-        var cubeGeometry = new THREE.BoxGeometry(15, 15, 10);
+        var cubeGeometry = new THREE.BoxGeometry(20, 15, 20);
         var cubeMaterial = new THREE.MeshNormalMaterial();
         var cube = new THREE.Mesh(cubeGeometry, tetoMaterial);
 
         cube.add(cylinder);
         cube.add(cylinder2);
-        cube.position.set(0,0,0);
+        cube.position.set(0,0,-4);
         cubo.add(cube);
     }
