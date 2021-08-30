@@ -29,11 +29,11 @@ import {initRenderer,
 
         // position the cube
         cube.position.set(0.0, 0.0, 2.0);
-        scene.add(cube);
+        //scene.add(cube);
 
         gerarRuas();
         gerarCalcada();
-        gerarPredios();
+        //gerarPredios();
         //Gera entre 60 e 90 arvores
         /*
         var quantidadeArvore = Math.random() *30 + 60;
@@ -64,6 +64,9 @@ import {initRenderer,
             } else {
                 landingTrack[i].position.set(posicaoRua[i%4],0,0);
             }
+
+
+
             plane.add(landingTrack[i]);
         }
         //var landingTrack = new THREE.Mesh(landingTrackGeometry, landingTrackMaterial); 
@@ -85,6 +88,8 @@ import {initRenderer,
         //let calcadaMaterial = new THREE.MeshLambertMaterial({color:"rgb(200, 200, 200)"}); // light grey
         var posicaoCalcada = [(-tamanho/3),0,(tamanho/3)];
 
+        var index = 0;
+
         for(let i=0;i<9;i++){
             calcada[i] = new THREE.Mesh(calcadaGeometry, calcadaMaterial);
             
@@ -95,20 +100,66 @@ import {initRenderer,
             } else {
                 calcada[i].position.set(posicaoCalcada[2],posicaoCalcada[i%3],0);
             }
+                    // create a cube
+            var cubeGeometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
+            var cubeMaterial = new THREE.MeshNormalMaterial();
+            var cube1 = new THREE.Mesh(cubeGeometry, cubeMaterial);
+            var cube2 = new THREE.Mesh(cubeGeometry, cubeMaterial);
+            var cube3 = new THREE.Mesh(cubeGeometry, cubeMaterial);
+            var cube4 = new THREE.Mesh(cubeGeometry, cubeMaterial);
+            // position the cube
+            cube1.position.set((tamanhoQuadrado/4), (tamanhoQuadrado/4), 2.0);
+            cube2.position.set((tamanhoQuadrado/4), -(tamanhoQuadrado/4), 2.0);
+            cube3.position.set(-(tamanhoQuadrado/4), (tamanhoQuadrado/4), 2.0);
+            cube4.position.set(-(tamanhoQuadrado/4),-(tamanhoQuadrado/4), 2.0);
+            calcada[i].add(cube1);
+            calcada[i].add(cube2);
+            calcada[i].add(cube3);
+            calcada[i].add(cube4);
+
+            gerarPredios(cube1,index%6);
+            index++;
+
+            gerarPredios(cube2,index%6);
+            index++;
+
+            gerarPredios(cube3,index%6);
+            index++;
+
+            gerarPredios(cube4,index%6);
+            index++;
+
             plane.add(calcada[i]);
+
+            
         }
     }
 
-    function gerarPredios(){
-        //modeloPredio1();
-        //modeloPredio2();
-       //modeloPredio3();
-       //modeloPredio4();
-       //modeloPredio5();
-        modeloPredio6();
+    function gerarPredios(cubo,index){
+        switch (index){
+            case 0:
+                modeloPredio1(cubo);
+                break;
+            case 1:
+                modeloPredio2(cubo);
+                break;
+            case 2:
+                modeloPredio3(cubo);
+                break;
+            case 3:
+                modeloPredio4(cubo);
+                break;
+            case 4:
+                modeloPredio5(cubo);
+                break;
+            case 5:
+                modeloPredio6(cubo);
+                break;
+        }
+
     }
 
-    function modeloPredio1(){
+    function modeloPredio1(cubo){
         
         var paredeGeometry = new THREE.PlaneGeometry(tamanho/9, 100);
         var chaoGeometry = new THREE.PlaneGeometry(0.1, 0.1);
@@ -169,17 +220,18 @@ import {initRenderer,
 
         parede[5].position.set(0, 0.0, 94);
         //Posicao do edificio
-        parede[0].position.set((tamanho/9)/2, (tamanho/9)/2, 0);
+        parede[0].position.set(0, 0, 0);
         parede[0].add(parede[1]);
         parede[0].add(parede[2]);
         parede[0].add(parede[3]);
         parede[0].add(parede[4]);
         parede[0].add(parede[5]);
 
-        plane.add(parede[0]);
+        //parede[0].geometry.center();
+        cubo.add(parede[0]);
     }
 
-    function modeloPredio2(){
+    function modeloPredio2(cubo){
         var altura = 50;
         var paredeGeometry = new THREE.PlaneGeometry(tamanho/9, tamanho/9);
         var chaoGeometry = new THREE.PlaneGeometry(0.1, 0.1);
@@ -251,7 +303,7 @@ import {initRenderer,
 
         parede[5].position.set(0, 0.0, 66.5);
         //Posicao do edificio
-        parede[0].position.set((tamanho/9)/2, (tamanho/9)/2, -22);
+        parede[0].position.set(0, 0, -22);
         parede[0].add(parede[1]);
         parede[0].add(parede[2]);
         parede[0].add(parede[3]);
@@ -326,10 +378,10 @@ import {initRenderer,
 
 
         parede[5].add(paredeTorre[0]);
-        plane.add(parede[0]);
+        cubo.add(parede[0]);
     }
 
-    function modeloPredio3(){
+    function modeloPredio3(cubo){
         
         var paredeGeometry = new THREE.PlaneGeometry(tamanho/9, 100);
         var chaoGeometry = new THREE.PlaneGeometry(0.1, 0.1);
@@ -388,14 +440,14 @@ import {initRenderer,
 
         parede[5].position.set(0, 0.0, 94);
         //Posicao do edificio
-        parede[0].position.set((tamanho/9)/2, (tamanho/9)/2, 0);
+        parede[0].position.set(0, 0, 0);
         parede[0].add(parede[1]);
         parede[0].add(parede[2]);
         parede[0].add(parede[3]);
         parede[0].add(parede[4]);
         parede[0].add(parede[5]);
 
-        plane.add(parede[0]);
+        cubo.add(parede[0]);
 
 
         //topo
@@ -430,7 +482,7 @@ import {initRenderer,
 
 
     //Prédio Cilindro
-    function modeloPredio4(){
+    function modeloPredio4(cubo){
         
         var altura = 80;
         var raio = 18;
@@ -473,10 +525,10 @@ import {initRenderer,
         cylinder.add(circle);
         //cylinder.add(circle2);
 
-        plane.add(cylinder);
+        cubo.add(cylinder);
     }
 
-    function modeloPredio5(){
+    function modeloPredio5(cubo){
         
         var altura = 50;
         var paredeGeometry = new THREE.PlaneGeometry(tamanho/9, tamanho/9);
@@ -550,7 +602,7 @@ import {initRenderer,
 
         parede[5].position.set(0, 0.0, 66.5);
         //Posicao do edificio
-        parede[0].position.set((tamanho/9)/2, (tamanho/9)/2, -22);
+        parede[0].position.set(0, 0, -22);
         parede[0].add(parede[1]);
         parede[0].add(parede[2]);
         parede[0].add(parede[3]);
@@ -632,10 +684,10 @@ import {initRenderer,
         paredeTorre[0].add(paredeTorre[5]);
 
         parede[5].add(paredeTorre[0]);
-        plane.add(parede[0]);
+        cubo.add(parede[0]);
     }
 
-    function modeloPredio6(){
+    function modeloPredio6(cubo){
         var altura = 60;
         var raio = 12;
 
@@ -702,6 +754,6 @@ import {initRenderer,
 
         cube.add(cylinder);
         cube.add(cylinder2);
-        cube.position.set(10,10,0);
-        plane.add(cube);
+        cube.position.set(0,0,0);
+        cubo.add(cube);
     }
