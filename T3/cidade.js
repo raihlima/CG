@@ -5,8 +5,7 @@ import {initRenderer,
         initCamera,
         InfoBox,
         onWindowResize} from "../libs/util/util.js";
-
-import { gerarCidade } from './classes/predio.js';
+import { gerarCidade } from './classes/cidade.js';
 
 var stats = new Stats();          // To show FPS information
 var scene = new THREE.Scene();    // Create main scene
@@ -19,20 +18,13 @@ var trackballControls = new TrackballControls( camera, renderer.domElement );
 // Show axes (parameter is size of each axis)
 var axesHelper = new THREE.AxesHelper( 12 );
 scene.add( axesHelper );
-
-const light = new THREE.DirectionalLight(0xfefefe);
-light.position.set(100, 90, 100);
-scene.add(light);
-
-const ambientLight = new THREE.AmbientLight(0x442222);
-scene.add(ambientLight);
-
-// create the ground plane
-
+var spotLight = new THREE.SpotLight( "white", 0.0); // 0.0 because it starts turned off
+scene.add(spotLight);
+spotLight.position.set(0, 0, 10); // sets the initial position of the spotlight
+// Hemisphere light
+var hemisphereLight = new THREE.HemisphereLight( "white", "white", 0.75 );
+scene.add( hemisphereLight );
 gerarCidade(scene);
-
-// add the cube to the scene
-//scene.add(cube);
 
 // Use this to show information onscreen
 var controls = new InfoBox();
